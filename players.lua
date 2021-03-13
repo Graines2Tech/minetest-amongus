@@ -104,6 +104,8 @@ function amongus.init_player(player)
     if visitor then
         amongus.create_visitor(player_name)
     end
+    --hide player name
+    player:set_nametag_attributes({text = " "})
 end
 
 --define a random skin for the player
