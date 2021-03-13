@@ -77,9 +77,10 @@ end
 --world initialisation
 function amongus.init()
     minetest.chat_send_all("Game has not started yet, please wait")
+    minetest.set_timeofday(0)
     amongus.init_players()
-    -- amongus.close_spawn_doors()
-    -- amongus.teleport_players_to_spawn()
+    amongus.close_spawn_doors()
+    amongus.teleport_players_to_spawn()
     amongus.reset_players()
 end
 
