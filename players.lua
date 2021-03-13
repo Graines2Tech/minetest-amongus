@@ -276,6 +276,7 @@ function amongus.kill_player(player_name, no_bones)
     if not no_bones then
         local pos = amongus.players[player_name].player:get_pos()
         minetest.set_node(pos, {name = "amongus:corpse"})
+        table.insert(amongus.corpses, pos)
         local bone_meta = minetest.get_meta(pos)
         bone_meta:set_string("infotext", player_name)
     end
@@ -427,13 +428,11 @@ minetest.register_node(
         description = "AmongUS corpse",
         paramtype2 = "facedir",
         tiles = {
+            "amongus_corpse_top.png",
             "amongus_corpse.png"
         },
         inventory_image = "amongus_corpse.png",
         groups = {},
-        after_place_node = function(pos, placer, itemstack, pointed_thing)
-            table.insert(amongus.corpses, pos)
-        end,
         on_rightclick = function(pos, node, player, itemstack)
             amongus.start_meeting(player:get_player_name(), "Corpse found")
         end
