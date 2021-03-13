@@ -284,7 +284,7 @@ local function spawn_action(pos, node, player)
     if amongus.meeting then
         --meeting launched => open meeting form
         amongus.display_meeting_form(player_name)
-    elseif amongus.game_started then
+    elseif amongus.game_started and not amongus.is_ghost(player_name) then
         --game started
         if amongus.emergency_current_cooldown > 0 then
             --emergency delay not over
