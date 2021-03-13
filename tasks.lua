@@ -5,9 +5,11 @@ local TASKS_FILE = WORLD_PATH .. "/tasks.txt"
 
 --check if the player has been assigned the task
 local function has_task(player_name, pos)
-    for key, task in ipairs(amongus.player_tasks[player_name]) do
-        if vector.equals(task.pos, pos) then
-            return true
+    if amongus.player_tasks[player_name] then
+        for key, task in ipairs(amongus.player_tasks[player_name]) do
+            if vector.equals(task.pos, pos) then
+                return true
+            end
         end
     end
     return false
