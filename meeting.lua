@@ -184,4 +184,5 @@ function amongus.end_meeting()
     amongus.set_freeze(false)
     amongus.start_kill_cooldown()
     amongus.start_emergency_cooldown()
+    amongus.check_end_game()
 end
