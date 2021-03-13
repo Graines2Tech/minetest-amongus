@@ -66,12 +66,18 @@ end
 --return true if crew wins
 function amongus.crew_win()
     local nb_impostors = 0
+    if amongus.task_completion == 1 then
+        --all tasks finished
+        return true
+    end
     for _, impostor in ipairs(amongus.impostors) do
         if not amongus.players[impostor].ghost then
+            --one impostor is still alive
             return false
         end
     end
-    return amongus.task_completion == 1
+    --tasks not finished but no impostors alive
+    return true
 end
 
 --world initialisation
