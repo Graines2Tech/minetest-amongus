@@ -43,9 +43,30 @@ function amongus.set_players()
     end
 end
 
+--define privileges for the player
+function amongus.set_privileges(player_name)
+    local privs = minetest.get_player_privs(player_name)
+    local priv = false
+    if amongus.creative_mode then
+        priv = true
+    end
+    privs.shout = true
+    privs.interact = true
+    privs.fly = priv
+    privs.worldedit = priv
+    privs.teleport = priv
+    privs.noclip = priv
+    privs.fast = priv
+    privs.give = priv
+    privs.home = priv
+    minetest.set_player_privs(player_name, privs)
+end
+
 --define settings for player
 function amongus.init_player(player)
     local player_name = player:get_player_name()
+    --define privileges
+    amongus.set_privileges(player_name)
     --teleport player so spawn
     local visitor = false
     if amongus.game_started then
