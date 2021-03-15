@@ -230,7 +230,7 @@ function amongus.display_impostors()
         table.insert(impostors_names, player_name)
     end
     local impostors_name = table.concat(impostors_names, ",")
-    for _, player_name in pairs(amongus.impostors) do
+    for _, player_name in ipairs(amongus.impostors) do
         local p = amongus.players[player_name]
         if p.connected then
             table.insert(
@@ -301,7 +301,7 @@ function amongus.display_kill_cooldown()
     local top = 80
     local length = 110
     local color, msg = get_kill_cooldown_msg()
-    for _, player_name in pairs(amongus.impostors) do
+    for _, player_name in ipairs(amongus.impostors) do
         local p = amongus.players[player_name]
         if p.connected then
             table.insert(
@@ -415,7 +415,7 @@ function amongus.announce_impostors()
     elseif nb == 1 then
         announce = announce .. "is 1 impostor"
     else
-        announce = announce .. "are " .. #amongus.impostors .. " impostors"
+        announce = announce .. "are " .. nb .. " impostors"
     end
     announce = announce .. " among us."
     for p_name, p in pairs(amongus.players) do
