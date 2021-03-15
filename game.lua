@@ -306,7 +306,7 @@ minetest.register_node(
         },
         inventory_image = "amongus_spawn.png",
         paramtype = "light",
-        light_source = minetest.LIGHT_MAX,
+        light_source = minetest.LIGHT_MAX-3,
         groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
         after_place_node = function(pos, placer, itemstack, pointed_thing)
             --remove old spawn
@@ -430,7 +430,7 @@ minetest.register_node(
         },
         inventory_image = "amongus_emergency-btn_up.png",
         paramtype = "light",
-        light_source = minetest.LIGHT_MAX,
+        light_source = minetest.LIGHT_MAX-3,
         groups = {dig_immediate = 2, not_in_creative_inventory = 1},
         drawtype = "nodebox",
         node_box = {
@@ -439,11 +439,7 @@ minetest.register_node(
                 {-0.5000, -0.5000, -0.5000, 0.5000, -0.4375, 0.5000},
                 {-0.1250, -0.4375, -0.2500, 0.1250, -0.3125, 0.2500},
                 {-0.2500, -0.4375, -0.1250, 0.2500, -0.3125, 0.1250},
-                {-0.1875, -0.4375, -0.1875, 0.1875, -0.3125, 0.1875},
-                {-0.1875, -0.3125, -0.06250, 0.1875, -0.2500, 0.06250},
-                {-0.06250, -0.3125, -0.1875, 0.06250, -0.2500, 0.1875},
-                {-0.1250, -0.3125, -0.1250, 0.1250, -0.2500, 0.1250},
-                {-0.06250, -0.2500, -0.06250, 0.06250, -0.1875, 0.06250}
+                {-0.1875, -0.4375, -0.1875, 0.1875, -0.3125, 0.1875}
             }
         },
         on_rightclick = spawn_action
