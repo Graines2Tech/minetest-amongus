@@ -202,12 +202,12 @@ function amongus.reset_players()
     amongus.reset_impostors()
     --remove corpses
     amongus.remove_corpses(true)
-    --revive ghost
-    for _, player_name in pairs(amongus.ghosts) do
-        amongus.revive_ghost(player_name)
-    end
     --reset forms
     for p_name, p in pairs(amongus.players) do
+        if p.ghost then
+            --revive ghost
+            amongus.revive_ghost(p_name)
+        end
         minetest.destroy_form(p_name)
     end
     --reset player positions
@@ -224,7 +224,6 @@ function amongus.reset_players()
     end
     --empty teams
     amongus.impostors = {}
-    amongus.crew = {}
     amongus.players = {}
 end
 
@@ -249,15 +248,7 @@ function amongus.build_teams()
         table.insert(impostors, connected_players[num])
         amongus.create_impostor(connected_players[num])
     end
-    --define crew
-    local crew = {}
-    for p_name, p in pairs(amongus.players) do
-        if p.connected and not amongus.is_impostor(p_name) then
-            table.insert(crew, p_name)
-        end
-    end
     amongus.impostors = impostors
-    amongus.crew = crew
     amongus.display_impostors()
     amongus.display_kill_cooldown()
     amongus.announce_impostors()
@@ -296,7 +287,6 @@ end
 function amongus.create_ghost(player_name)
     amongus.create_visitor(player_name)
     amongus.players[player_name].ghost = true
-    table.insert(amongus.ghosts, player_name)
     define_player_pos_block(player_name, amongus.players[player_name].spawn_pos)
 end
 
@@ -317,12 +307,7 @@ function amongus.revive_ghost(player_name)
     privs.fly = nil
     privs.noclip = nil
     minetest.set_player_privs(player_name, privs)
-    for key, name in ipairs(amongus.ghosts) do
-        if player_name == name then
-            amongus.ghosts[key] = nil
-            amongus.players[player_name].ghost = false
-        end
-    end
+    amongus.players[player_name].ghost = false
     define_player_pos_block(player_name, amongus.players[player_name].spawn_pos)
 end
 
@@ -465,8 +450,10 @@ minetest.register_on_leaveplayer(
 minetest.register_on_chat_message(
     function(name, message)
         if amongus.is_ghost(name) then
-            for _, player_name in ipairs(amongus.ghosts) do
-                minetest.chat_send_player(player_name, "[Ghost] " .. message)
+            for p_name, p in pairs(amongus.players) do
+                if amongus.is_ghost(p_name) then
+                    minetest.chat_send_player(p_name, "[Ghost] " .. message)
+                end
             end
             return true
         end

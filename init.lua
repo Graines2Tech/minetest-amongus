@@ -50,10 +50,8 @@ amongus = {
         spawn = nil,
         --minetest string position of the start block
         start = nil,
-        --list of players {<player_name> = <minetest position of the start block for the player>}
+        --list of players {<player_name> = {spawn_pos,impostor,ghost,connected,player}}
         players = {},
-        --list of crewmates {<player_name>}
-        crew = {},
         --list of impostors {<player_name>}
         impostors = {},
         --list of huds for impostors {{<player_name>,<player_hud_id>}}
@@ -76,8 +74,6 @@ amongus = {
         task_completion = 0,
         --list of positions of the corpses {<minetest_position>}
         corpses = {},
-        --list of ghosts {<player_name>}
-        ghosts = {},
         --name of block for players empty position
         block_empty = "mesecons_lightstone:lightstone_gray_off",
         --default spawn correction
