@@ -46,10 +46,12 @@ local function display_temporary_hud(player, timeout, position, message, color, 
             number = color
         }
     )
+    minetest.log(string.format("[amongus] add huds %s and %s for player %s",dump(hud),dump(bg),player:get_player_name()))
     --destroy the display after timeout
     minetest.after(
         timeout,
         function()
+            minetest.log(string.format("[amongus] remove huds %s and %s for player %s",dump(hud),dump(bg),player:get_player_name()))
             player:hud_remove(hud)
             player:hud_remove(bg)
             --dereference the displayed message for this player at this position
@@ -442,7 +444,7 @@ function amongus.announce_ghost(player_name)
         player = amongus.players[player_name].player
     end
     if player ~= nil then
-        display_temporary_hud(player, 5, POS_CENTER_MIDDLE, announce, 0xFFFF00, {x = 200, y = 60})
+        display_temporary_hud(player, 5, POS_CENTER_MIDDLE, announce, 0xFFFF00, {x = 300, y = 60})
     end
 end
 
