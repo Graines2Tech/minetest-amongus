@@ -206,6 +206,10 @@ function amongus.reset_players()
     for _, player_name in pairs(amongus.ghosts) do
         amongus.revive_ghost(player_name)
     end
+    --reset forms
+    for p_name, p in pairs(amongus.players) do
+        minetest.destroy_form(p_name)
+    end
     --reset player positions
     for _, player_pos in ipairs(amongus.players_pos) do
         player_pos.player = nil
@@ -274,6 +278,8 @@ end
 --kill a player
 function amongus.kill_player(player_name, no_bones)
     no_bones = no_bones or false
+    --close current opened form
+    minetest.destroy_form(player_name)
     amongus.create_ghost(player_name)
     if not no_bones then
         local pos = amongus.players[player_name].player:get_pos()

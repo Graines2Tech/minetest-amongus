@@ -172,6 +172,8 @@ function amongus.start_meeting(host_name, reason)
     amongus.remove_corpses()
     amongus.reinit_meeting_node(host_name, reason)
     for p_name, p in pairs(amongus.players) do
+        --close current opened form
+        minetest.destroy_form(p_name)
         amongus.reinit_meeting(p.player)
     end
     amongus.announce_meeting()
