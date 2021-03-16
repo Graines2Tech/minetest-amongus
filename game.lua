@@ -161,11 +161,13 @@ function amongus.start_game()
     amongus.build_teams()
     amongus.dispatch_tasks()
     amongus.open_spawn_doors()
-    amongus.game_started = true
     minetest.after(
         5,
         function()
             amongus.set_freeze(false)
+            amongus.game_started = true
+            amongus.kill_current_cooldown = 0
+            amongus.emergency_current_cooldown = 0
             amongus.start_kill_cooldown()
             amongus.start_emergency_cooldown()
         end
