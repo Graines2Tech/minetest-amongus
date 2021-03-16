@@ -81,6 +81,7 @@ function amongus.reset_tasks()
         amongus.player_tasks[p_name] = nil
         amongus.player_finished_tasks[p_name] = nil
     end
+    amongus.task_completion = 0
 end
 
 --calculate tasks completion
