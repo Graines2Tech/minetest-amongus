@@ -153,11 +153,12 @@ function amongus.check_end_votation(force)
             message = winner .. " has been ejected."
             amongus.kill_player(winner, true)
         end
+        amongus.end_meeting()
         amongus.announce_end_meeting(message)
         minetest.after(
             5,
             function()
-                amongus.end_meeting()
+                amongus.set_freeze(false)
             end
         )
     end
@@ -183,7 +184,6 @@ end
 function amongus.end_meeting()
     amongus.meeting = false
     amongus.open_spawn_doors()
-    amongus.set_freeze(false)
     amongus.start_kill_cooldown()
     amongus.start_emergency_cooldown()
     amongus.check_end_game()
