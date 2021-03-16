@@ -39,6 +39,9 @@ end
 
 --decrement kill cooldown
 function amongus.decrement_kill_cooldown()
+    if amongus.kill_current_cooldown < 0 then
+        amongus.kill_current_cooldown = 0
+    end
     --do not decrement if game is not started or if meeting is launched or if cooldown already passed
     if not amongus.game_started or amongus.meeting or amongus.kill_current_cooldown == 0 then
         return

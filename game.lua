@@ -259,6 +259,9 @@ end
 
 --decrement emergency cooldown
 function amongus.decrement_emergency_cooldown()
+    if amongus.emergency_current_cooldown < 0 then
+        amongus.emergency_current_cooldown = 0
+    end
     --do not decrement if game is not started or if meeting is launched or if cooldown already passed
     if not amongus.game_started or amongus.meeting or amongus.emergency_current_cooldown == 0 then
         return
