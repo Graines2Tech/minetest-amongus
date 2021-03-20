@@ -1,3 +1,5 @@
+local S = minetest.get_translator("amongus")
+
 --test if kill is authorized
 local function can_kill(impostor_name, target)
     if type(target) ~= "userdata" then
@@ -7,31 +9,31 @@ local function can_kill(impostor_name, target)
         return false
     end
     if not amongus.is_impostor(impostor_name) then
-        minetest.chat_send_player(impostor_name, "How do you get this weapon? Only impostors are skilled to use it…")
+        minetest.chat_send_player(impostor_name, S("How do you get this weapon? Only impostors are skilled to use it…"))
         return false
     end
     if amongus.is_ghost(impostor_name) then
-        minetest.chat_send_player(impostor_name, "You're dead, you cannot kill people any more…")
+        minetest.chat_send_player(impostor_name, S("You're dead, you cannot kill people any more…"))
         return false
     end
     if amongus.meeting then
-        minetest.chat_send_player(impostor_name, "Seriously? During a meeting?")
+        minetest.chat_send_player(impostor_name, S("Seriously? During a meeting?"))
         return false
     end
     if amongus.is_impostor(target) then
-        minetest.chat_send_player(impostor_name, "Seriously? You wanna kill your partner?")
+        minetest.chat_send_player(impostor_name, S("Seriously? You wanna kill your partner?"))
         return false
     end
     local imp_pos = amongus.players[impostor_name].player:get_pos()
     local target_pos = target:get_pos()
     local distance = vector.distance(target_pos, imp_pos)
     if distance > amongus.kill_distance then
-        minetest.chat_send_player(impostor_name, "You must be closer…")
+        minetest.chat_send_player(impostor_name, S("You must be closer…"))
         return false
     end
     if not amongus.game_started then
         --this case should not occur as impostors are only selected when the game starts
-        minetest.chat_send_player(impostor_name, "Game has not started yet…")
+        minetest.chat_send_player(impostor_name, S("Game has not started yet…"))
         return false
     end
     return true
@@ -67,7 +69,7 @@ end
 minetest.register_tool(
     "amongus:amongus_sword",
     {
-        description = "Among us Sword",
+        description = S("Among us Sword"),
         inventory_image = "amongus_sword.png",
         groups = {not_in_creative_inventory = 1},
         tool_capabilities = {
