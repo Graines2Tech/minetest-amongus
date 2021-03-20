@@ -1,3 +1,6 @@
+#common
+Game has not started yet…=Game has not started yet…
+
 #huds
 Tasks=Tasks
 IMPOSTOR=IMPOSTOR
@@ -25,5 +28,60 @@ You're dead, you cannot kill people any more…=You're dead, you cannot kill peo
 Seriously? During a meeting?=Seriously? During a meeting?
 Seriously? You wanna kill your partner?=Seriously? You wanna kill your partner?
 You must be closer…=You must be closer…
-Game has not started yet…=Game has not started yet…
 Among us Sword=Among us Sword
+
+#skin
+Choose your skin=Choose your skin
+black=Black
+blue=Blue
+brown=Brown
+cyan=Cyan
+green=Green
+invisible=Invisible
+lime=Lime
+orange=Orange
+pink=Pink
+purple=Purple
+red=Red
+white=White
+yellow=Yellow
+yin_yang=Yin Yang
+
+#players
+@1 is the game master=@1 is the game master
+AmongUS corpse=AmongUS corpse
+Corpse found=Corpse found
+[Ghost]=[Ghost]
+
+#game
+Game has not started yet, please wait=Game has not started yet, please wait
+Impostors win.=Impostors win.
+Crewmates win.=Crewmates win.
+Emergency button will be available in @1s.=Emergency button will be available in @1s.
+Emergency=Emergency
+AmongUS spawn=AmongUS spawn
+AmongUS start block=AmongUS start block
+Only @1 can start the game.=Only @1 can start the game.
+@1 ends the game.=@1 ends the game.
+AmongUS emergency button=AmongUS emergency button
+
+#tasks
+AmongUS @1 task=AmongUS @1 task
+You cannot do tasks during meetings.=You cannot do tasks during meetings.
+You are too far from the task.=You are too far from the task.
+Just fake it!=Just fake it!
+
+#tasks/download
+PUSH!!!!!!! NOW!!!!!!!=PUSH!!!!!!! NOW!!!!!!!
+
+#tasks/questions
+You fail dude, be more lucky next time !=You fail dude, be more lucky next time !
+Who can went ???=Who can went ???
+Only impostors=Only impostors
+everyone=everyone
+does a pink skin exist on among us ??=does a pink skin exist on among us ??
+is Among us paid on smartphone ???=is Among us paid on smartphone ???
+Can we download among us on steam ???=Can we download among us on steam ???
+yes=yes
+no=no
+What is the price of among us on pc ???=What is the price of among us on pc ???

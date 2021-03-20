@@ -1,3 +1,5 @@
+local S = minetest.get_translator("amongus")
+
 local BLOCK_GHOST = "mesecons_lightstone:lightstone_red_on"
 local BLOCK_PLAYER = "mesecons_lightstone:lightstone_green_on"
 
@@ -147,7 +149,7 @@ end
 function amongus.check_first_player(player_name)
     if amongus.admin == nil then
         amongus.admin = player_name
-        minetest.chat_send_all(player_name .. " is the game master")
+        minetest.chat_send_all(S("@1 is the game master", player_name))
     end
 end
 
@@ -394,7 +396,7 @@ end
 minetest.register_node(
     "amongus:corpse",
     {
-        description = "AmongUS corpse",
+        description = S("AmongUS corpse"),
         paramtype2 = "facedir",
         tiles = {
             "amongus_corpse_top.png",
@@ -403,7 +405,7 @@ minetest.register_node(
         inventory_image = "amongus_corpse.png",
         groups = {},
         on_rightclick = function(pos, node, player, itemstack)
-            amongus.start_meeting(player:get_player_name(), "Corpse found")
+            amongus.start_meeting(player:get_player_name(), S("Corpse found"))
         end
     }
 )
@@ -433,7 +435,7 @@ minetest.register_on_chat_message(
         if amongus.is_ghost(name) then
             for p_name, p in pairs(amongus.players) do
                 if amongus.is_ghost(p_name) then
-                    minetest.chat_send_player(p_name, "[Ghost] " .. message)
+                    minetest.chat_send_player(p_name, S("[Ghost]") .. " " .. message)
                 end
             end
             return true

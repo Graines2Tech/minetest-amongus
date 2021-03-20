@@ -1,3 +1,5 @@
+local S = minetest.get_translator("amongus")
+
 local TASK_NAME = "download"
 local FORM_NAME = "amongus_task_" .. TASK_NAME
 local KEY = FORM_NAME .. "_key"
@@ -20,7 +22,7 @@ local function showForm(player, pos)
     }
 
     if current == 0 then
-        table.insert(formspec, "button[3,2;4,2;push_now;PUSH!!!!!!! NOW!!!!!!!]")
+        table.insert(formspec, "button[3,2;4,2;push_now;" .. S("PUSH!!!!!!! NOW!!!!!!!") .. "]")
     else
         table.insert(formspec, "box[3,2;4,2;gray]")
         table.insert(formspec, "box[3,2;" .. tostring(4 / 10 * current) .. ",2;blue]")
@@ -42,7 +44,7 @@ local closeForm = function(pos, player, fields)
     local player_meta = player:get_meta()
     local current = player_meta:get_int(KEY .. posstr)
 
-    if fields.push_now == "PUSH!!!!!!! NOW!!!!!!!" then
+    if fields.push_now == S("PUSH!!!!!!! NOW!!!!!!!") then
         minetest.get_form_timer(playerName).start(1)
         player_meta:set_int(KEY .. posstr, 1)
         minetest.update_form(playerName, showForm(player, pos))

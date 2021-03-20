@@ -1,3 +1,5 @@
+local S = minetest.get_translator("amongus")
+
 local MOD_NAME = minetest.get_current_modname()
 local MOD_PATH = minetest.get_modpath(MOD_NAME)
 local WORLD_PATH = minetest.get_worldpath()
@@ -149,7 +151,7 @@ function amongus.register_task_node(name, tiles, initForm, showForm, closeForm, 
     minetest.register_node(
         "amongus:task_" .. name,
         {
-            description = "AmongUS " .. name .. " task",
+            description = S("AmongUS @1 task", name),
             paramtype2 = "facedir",
             tiles = tiles,
             inventory_image = tiles[#tiles],
@@ -159,22 +161,22 @@ function amongus.register_task_node(name, tiles, initForm, showForm, closeForm, 
                 local distance = vector.distance(pos, playerpos)
                 local player_name = player:get_player_name()
                 if not amongus.game_started then
-                    minetest.chat_send_player(player_name, "Game has not started yet…")
+                    minetest.chat_send_player(player_name, S("Game has not started yet…"))
                     return nil
                 end
                 if amongus.meeting then
-                    minetest.chat_send_player(player_name, "You cannot do tasks during meetings.")
+                    minetest.chat_send_player(player_name, S("You cannot do tasks during meetings."))
                     return nil
                 end
                 if not has_task(player_name, pos) then
                     return nil
                 end
                 if distance > amongus.task_distance then
-                    minetest.chat_send_player(player_name, "You are too far from the task.")
+                    minetest.chat_send_player(player_name, S("You are too far from the task."))
                     return nil
                 end
                 if amongus.is_impostor(player_name) then
-                    minetest.chat_send_player(player_name, "Just fake it!")
+                    minetest.chat_send_player(player_name, S("Just fake it!"))
                     return nil
                 end
                 local str_pos = minetest.pos_to_string(pos)

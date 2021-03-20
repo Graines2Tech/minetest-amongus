@@ -1,3 +1,5 @@
+local S = minetest.get_translator("amongus")
+
 local SKIN_DEFAULT = "invisible"
 local MOD_NAME = minetest.get_current_modname()
 local MOD_PATH = minetest.get_modpath(MOD_NAME)
@@ -55,7 +57,7 @@ local showForm = function(player_name)
         math.ceil(nb / 2) * height2 + top,
         "]",
         "label[2,0.5;",
-        minetest.formspec_escape("Choose your skin"),
+        minetest.formspec_escape(S("Choose your skin")),
         "]",
         "style_type[button;bgcolor=green]"
     }
@@ -67,7 +69,7 @@ local showForm = function(player_name)
                 if amongus.skins[skin] then
                     table.insert(formspec, "label[" .. pos .. ";" .. skin .. "]")
                 else
-                    table.insert(formspec, "button[" .. pos .. ";" .. size .. ";target;" .. skin .. "]")
+                    table.insert(formspec, "button[" .. pos .. ";" .. size .. ";target;" .. S(skin) .. "]")
                 end
                 if c % 2 == 0 then
                     c = c + 1

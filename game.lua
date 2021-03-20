@@ -1,3 +1,5 @@
+local S = minetest.get_translator("amongus")
+
 local WORLD_PATH = minetest.get_worldpath()
 local SPAWN_FILE = WORLD_PATH .. "/spawn.txt"
 local START_FILE = WORLD_PATH .. "/start.txt"
@@ -82,7 +84,7 @@ end
 
 --world initialisation
 function amongus.init()
-    minetest.chat_send_all("Game has not started yet, please wait")
+    minetest.chat_send_all(S("Game has not started yet, please wait"))
     minetest.set_timeofday(0)
     amongus.init_players()
     amongus.close_spawn_doors()
@@ -94,10 +96,10 @@ end
 function amongus.check_end_game()
     local message = ""
     if amongus.impostors_win() then
-        message = "Impostors win."
+        message = S("Impostors win.")
     end
     if amongus.crew_win() then
-        message = "Crewmates win."
+        message = S("Crewmates win.")
     end
     if message ~= "" then
         amongus.terminate_game(message)
@@ -300,26 +302,29 @@ local function spawn_action(pos, node, player)
         --player is alive
         if amongus.emergency_current_cooldown > 0 then
             --emergency delay not over
-            minetest.chat_send_player(player_name, "Emergency button will be available in "..amongus.emergency_current_cooldown.."s.")
+            minetest.chat_send_player(
+                player_name,
+                S("Emergency button will be available in @1s.", amongus.emergency_current_cooldown)
+            )
             return
         end
         --start emergency meeting
         amongus.emergency_current_cooldown = 0
-        amongus.start_meeting(player_name, "Emergency")
+        amongus.start_meeting(player_name, S("Emergency"))
     end
 end
 
 minetest.register_node(
     "amongus:spawn",
     {
-        description = "AmongUS spawn",
+        description = S("AmongUS spawn"),
         paramtype2 = "facedir",
         tiles = {
             "amongus_spawn.png"
         },
         inventory_image = "amongus_spawn.png",
         paramtype = "light",
-        light_source = minetest.LIGHT_MAX-3,
+        light_source = minetest.LIGHT_MAX - 3,
         groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
         after_place_node = function(pos, placer, itemstack, pointed_thing)
             --remove old spawn
@@ -354,7 +359,7 @@ minetest.register_node(
 mesecon.register_node(
     "amongus:start",
     {
-        description = "AmongUS start block",
+        description = S("AmongUS start block"),
         inventory_image = "amongus_start_face_on.png",
         paramtype2 = "facedir",
         is_ground_content = false,
@@ -378,14 +383,14 @@ mesecon.register_node(
         on_rightclick = function(pos, node, player, itemstack)
             local player_name = player:get_player_name()
             if player_name ~= amongus.admin then
-                minetest.chat_send_all("Only " .. amongus.admin .. " can start the game.")
+                minetest.chat_send_all(S("Only @1 can start the game.", amongus.admin))
                 return
             end
             if not amongus.game_started then
                 amongus.start_game()
             else
                 if amongus.creative_mode then
-                    amongus.terminate_game(amongus.admin .. " ends the game.")
+                    amongus.terminate_game(S("@1 ends the game.", amongus.admin))
                 end
             end
             return itemstack
@@ -432,7 +437,7 @@ mesecon.register_node(
 minetest.register_node(
     "amongus:emergency_btn",
     {
-        description = "AmongUS emergency button",
+        description = S("AmongUS emergency button"),
         tiles = {
             "amongus_emergency-btn_up.png",
             "amongus_emergency-btn_down.png",
@@ -443,7 +448,7 @@ minetest.register_node(
         },
         inventory_image = "amongus_emergency-btn_up.png",
         paramtype = "light",
-        light_source = minetest.LIGHT_MAX-3,
+        light_source = minetest.LIGHT_MAX - 3,
         groups = {dig_immediate = 2, not_in_creative_inventory = 1},
         drawtype = "nodebox",
         node_box = {

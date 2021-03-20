@@ -1,3 +1,5 @@
+local S = minetest.get_translator("amongus")
+
 local TASK_NAME = "questions"
 local FORM_NAME = "amongus_task_" .. TASK_NAME
 local KEY = FORM_NAME .. "_key"
@@ -22,27 +24,27 @@ local function showForm(player, pos)
 
     if error == "o" then
         table.insert(formspec, "box[0,0;10,6;red]")
-        table.insert(formspec, "label[3,2;You fail dude, be more lucky next time !]")
+        table.insert(formspec, "label[3,2;" .. S("You fail dude, be more lucky next time !") .. "]")
     else
         table.insert(formspec, "style_type[button;bgcolor=blue;font_size=24]")
         if current == 0 then
-            table.insert(formspec, "label[3,2;Who can went ???]")
-            table.insert(formspec, "button[1.5,4;3,1.5;ok;Only impostors]")
-            table.insert(formspec, "button[5.5,4;3,1.5;nok;everyone]")
+            table.insert(formspec, "label[3,2;" .. S("Who can went ???") .. "]")
+            table.insert(formspec, "button[1.5,4;3,1.5;ok;" .. S("Only impostors") .. "]")
+            table.insert(formspec, "button[5.5,4;3,1.5;nok;" .. S("everyone") .. "]")
         elseif current == 1 then
-            table.insert(formspec, "label[3,2;does a pink skin exist on among us ??]")
-            table.insert(formspec, "button[1.5,4;3,1.5;ok;yes]")
-            table.insert(formspec, "button[5.5,4;3,1.5;nok;no]")
+            table.insert(formspec, "label[3,2;" .. S("does a pink skin exist on among us ??") .. "]")
+            table.insert(formspec, "button[1.5,4;3,1.5;ok;" .. S("yes") .. "]")
+            table.insert(formspec, "button[5.5,4;3,1.5;nok;" .. S("no") .. "]")
         elseif current == 2 then
-            table.insert(formspec, "label[3,2;is Among us paid on smartphone ???]")
-            table.insert(formspec, "button[1.5,4;3,1.5;nok;yes]")
-            table.insert(formspec, "button[5.5,4;3,1.5;ok;no]")
+            table.insert(formspec, "label[3,2;" .. S("is Among us paid on smartphone ???") .. "]")
+            table.insert(formspec, "button[1.5,4;3,1.5;nok;" .. S("yes") .. "]")
+            table.insert(formspec, "button[5.5,4;3,1.5;ok;" .. S("no") .. "]")
         elseif current == 3 then
-            table.insert(formspec, "label[3,2;Can we download among us on steam ???]")
-            table.insert(formspec, "button[1.5,4;3,1.5;ok;yes]")
-            table.insert(formspec, "button[5.5,4;3,1.5;nok;no]")
+            table.insert(formspec, "label[3,2;" .. S("Can we download among us on steam ???") .. "]")
+            table.insert(formspec, "button[1.5,4;3,1.5;ok;" .. S("yes") .. "]")
+            table.insert(formspec, "button[5.5,4;3,1.5;nok;" .. S("no") .. "]")
         elseif current == 4 then
-            table.insert(formspec, "label[3,2;What is the price of among us on pc ???]")
+            table.insert(formspec, "label[3,2;" .. S("What is the price of among us on pc ???") .. "]")
             table.insert(formspec, "button[1.5,4;3,1.5;nok;400€]")
             table.insert(formspec, "button[5.5,4;3,1.5;ok;4€]")
         end
