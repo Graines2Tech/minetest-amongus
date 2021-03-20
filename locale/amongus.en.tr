@@ -1,0 +1,20 @@
+#huds
+Tasks=Tasks
+IMPOSTOR=IMPOSTOR
+Kill available=Kill available
+in @1s=in @1s
+Use the chat to discuss.=Use the chat to discuss.
+Right click on the spawn block to vote.=Right click on the spawn block to vote.
+@1s remaining.=@1s remaining.
+There are no impostors among us.=There are no impostors among us.
+There is 1 impostor among us.=There is 1 impostor among us.
+There are @1 impostors among us.=There are @1 impostors among us.
+You are now a ghost.=You are now a ghost.
+You can use fly and noclip modes.=You can use fly and noclip modes.
+Finish your tasks to help your team!=Finish your tasks to help your team!
+
+#meeting
+Meeting by=Meeting by
+No one was ejected (tie)=No one was ejected (tie)
+No one was ejected (skipped).=No one was ejected (skipped).
+@1 has been ejected.=@1 has been ejected.

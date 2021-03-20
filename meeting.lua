@@ -1,3 +1,5 @@
+local S = minetest.get_translator("amongus")
+
 local FORM_NAME = "amongus_meeting"
 local KEY = FORM_NAME .. "_key"
 local KEY_HOST = KEY .. "_host"
@@ -12,7 +14,9 @@ local showForm = function(player_name)
     local formspec = {
         "formspec_version[4]",
         "size[8.5,8]",
-        "label[2,0.5;Meeting by " .. hostName .. " (" .. reason .. ")]"
+        "label[2,0.5;",
+        S("Meeting by"),
+        " " .. hostName .. " (" .. reason .. ")]"
     }
 
     local ghost = amongus.is_ghost(player_name)
@@ -145,12 +149,12 @@ function amongus.check_end_votation(force)
         end
         local message = ""
         if equals then
-            message = "No one was ejected (tie)."
+            message = S("No one was ejected (tie).")
             winner = ""
         elseif winner == "" then
-            message = "No one was ejected (skipped)."
+            message = S("No one was ejected (skipped).")
         else
-            message = winner .. " has been ejected."
+            message = S("@1 has been ejected.",winner)
             amongus.kill_player(winner, true)
         end
         amongus.end_meeting()
