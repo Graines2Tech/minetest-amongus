@@ -108,30 +108,6 @@ function amongus.init_player(player)
     player:set_nametag_attributes({text = " "})
 end
 
---define a random skin for the player
-function amongus.define_random_skin(player_name)
-    local SKIN_DEFAULT = "skin_AmongUs_invisible.png"
-    local skin = SKIN_DEFAULT
-    local keyset = {}
-    local n = 0
-    for k, v in pairs(wardrobe.skinNames) do
-        n = n + 1
-        keyset[n] = k
-    end
-    for sk, pname in pairs(amongus.skins) do
-        if pname == player_name then
-            --in case of reconnection
-            wardrobe.changePlayerSkin(player_name, sk)
-            return
-        end
-    end
-    while amongus.skins[skin] ~= nil do
-        skin = keyset[math.random(#keyset)]
-    end
-    amongus.skins[skin] = player_name
-    wardrobe.changePlayerSkin(player_name, skin)
-end
-
 --teleport all players to spawn
 function amongus.teleport_players_to_spawn()
     for _, player in ipairs(minetest.get_connected_players()) do
@@ -292,7 +268,7 @@ end
 
 --create a visitor
 function amongus.create_visitor(player_name)
-    wardrobe.changePlayerSkin(player_name, "skin_AmongUs_invisible.png")
+    amongus.change_player_skin(player_name, amongus.get_default_skin_name())
     local privs = minetest.get_player_privs(player_name)
     privs.fly = true
     privs.noclip = true
@@ -435,7 +411,12 @@ minetest.register_node(
 --register player
 minetest.register_on_joinplayer(
     function(player)
-        amongus.init_player(player)
+        minetest.after(
+            0,
+            function()
+                amongus.init_player(player)
+            end
+        )
     end
 )
 

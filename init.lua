@@ -62,7 +62,7 @@ amongus = {
         tasks_huds = {},
         --list of huds for meetings {{<player_name>,<player_hud_id>}}
         meeting_huds = {},
-        --list of skins used by players {<skin_image_name>=<player_name>}
+        --list of skins used by players {<skin_name>=<player_name>}
         skins = {},
         --list of available tasks in the map {{name=<task_name>,pos=<minetest_string_task_position>}}
         tasks = {},
@@ -79,7 +79,6 @@ amongus = {
         --default spawn correction
         dft_spawn_corr = minetest.pos_to_string(vector.new(1, 0, 0))
 }
-amongus.skins["skin_AmongUs_invisible.png"] = "admin"
 amongus.creative_mode = minetest.setting_getbool("creative_mode")
 amongus.kill_current_cooldown = amongus.kill_cooldown
 amongus.emergency_current_cooldown = amongus.emergency_cooldown
@@ -87,10 +86,13 @@ amongus.emergency_current_cooldown = amongus.emergency_cooldown
 -- load files
 dofile(modpath .. "/huds.lua")
 dofile(modpath .. "/weapon.lua")
+dofile(modpath .. "/skin.lua")
 dofile(modpath .. "/players.lua")
 dofile(modpath .. "/tasks.lua")
 dofile(modpath .. "/meeting.lua")
 dofile(modpath .. "/game.lua")
+
+amongus.skins[amongus.get_default_skin_name()] = "Admin"
 
 minetest.register_chatcommand(
         "test",

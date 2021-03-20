@@ -1,0 +1,13 @@
+blanc
+brun
+cyan
+invisible
+jaune
+noir
+orange
+rose_fluo
+rouge
+vert_clair
+vert_fonce
+violet
+yin_yang

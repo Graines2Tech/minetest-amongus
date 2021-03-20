@@ -155,6 +155,9 @@ end
 
 --start amongus game
 function amongus.start_game()
+    amongus.kill_current_cooldown = amongus.kill_cooldown
+    amongus.emergency_current_cooldown = amongus.emergency_cooldown
+    amongus.game_started = true
     amongus.set_freeze(true)
     amongus.set_players()
     amongus.teleport_players_to_spawn()
@@ -165,9 +168,6 @@ function amongus.start_game()
         5,
         function()
             amongus.set_freeze(false)
-            amongus.game_started = true
-            amongus.kill_current_cooldown = 0
-            amongus.emergency_current_cooldown = 0
             amongus.start_kill_cooldown()
             amongus.start_emergency_cooldown()
         end
@@ -286,16 +286,24 @@ end
 --action when right-clicking on emergency button or spawn block
 local function spawn_action(pos, node, player)
     local player_name = player:get_player_name()
+    if not amongus.game_started then
+        --game not started -> choose skin
+        amongus.display_skin_form(player_name)
+        return
+    end
     if amongus.meeting then
-        --meeting launched => open meeting form
+        --meeting launched -> open meeting form
         amongus.display_meeting_form(player_name)
-    elseif amongus.game_started and not amongus.is_ghost(player_name) then
-        --game started
+        return
+    end
+    if not amongus.is_ghost(player_name) then
+        --player is alive
         if amongus.emergency_current_cooldown > 0 then
             --emergency delay not over
             minetest.chat_send_player(player_name, "Emergency button will be available in "..amongus.emergency_current_cooldown.."s.")
             return
         end
+        --start emergency meeting
         amongus.emergency_current_cooldown = 0
         amongus.start_meeting(player_name, "Emergency")
     end
