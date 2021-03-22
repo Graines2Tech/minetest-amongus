@@ -52,6 +52,7 @@ yin_yang=Yin Yang
 AmongUS corpse=AmongUS corpse
 Corpse found=Corpse found
 [Ghost]=[Ghost]
+You're dead! You cannot report corpses!=You're dead! You cannot report corpses!
 
 #game
 Game has not started yet, please wait=Game has not started yet, please wait

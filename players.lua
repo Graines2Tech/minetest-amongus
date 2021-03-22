@@ -405,7 +405,17 @@ minetest.register_node(
         inventory_image = "amongus_corpse.png",
         groups = {},
         on_rightclick = function(pos, node, player, itemstack)
-            amongus.start_meeting(player:get_player_name(), S("Corpse found"))
+            local player_name = player:get_player_name()
+            if amongus.players[player_name] == nil then
+                --player is not part of this game
+                return
+            end
+            if amongus.players[player_name].ghost then
+                --player is a ghost
+                minetest.chat_send_player(player_name, S("You're dead! You cannot report corpses!"))
+                return
+            end
+            amongus.start_meeting(player_name, S("Corpse found"))
         end
     }
 )
