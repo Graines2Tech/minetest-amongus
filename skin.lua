@@ -110,12 +110,15 @@ end
 function amongus.change_player_skin(player_name, skin)
     local player = minetest.get_player_by_name(player_name)
     if not player then
+        --player not connected
         return
     end
     if player_name == "Admin" and skin ~= SKIN_DEFAULT then
+        --player is Admin and want to change skin
         return
     end
-    if not (amongus.skins[skin] == nil or amongus.skins[skin] == player_name) then
+    if not (skin == SKIN_DEFAULT or amongus.skins[skin] == nil or amongus.skins[skin] == player_name) then
+        --skin is not the default one and skin is not available and is not attributed to the player
         return
     end
     player:set_properties(
