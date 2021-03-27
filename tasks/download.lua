@@ -44,7 +44,7 @@ local closeForm = function(pos, player, fields)
     local player_meta = player:get_meta()
     local current = player_meta:get_int(KEY .. posstr)
 
-    if fields.push_now == S("PUSH!!!!!!! NOW!!!!!!!") then
+    if fields.push_now ~= nil then
         minetest.get_form_timer(playerName).start(1)
         player_meta:set_int(KEY .. posstr, 1)
         minetest.update_form(playerName, showForm(player, pos))
