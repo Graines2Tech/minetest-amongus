@@ -10,13 +10,13 @@ Tâches :
  - *Temperature*
  - *Tache du dinausaure*
  - *Camera*
+
+Fonctionnalitées :
  - Skins : **10+**
  - Innocents et imposteurs : **Oui**
  - Changer de skin : **Oui**
- - Support d'ordinateurs lents : **Oui**
  - Report des corps : **Oui**
  - Meetings : **Oui**
- - et encore **plus** !
 ## Technique
 Requirements : **Minetest 5.0.0+** :  https://www.minetest.net/
 ## Screenshots :
