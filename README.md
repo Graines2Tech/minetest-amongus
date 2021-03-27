@@ -20,4 +20,4 @@ Fonctionnalitées :
 ## Technique
 Requirements : **Minetest 5.0.0+** :  https://www.minetest.net/
 ## Screenshots :
-![captu](https://cdn.discordapp.com/attachments/697436806358237186/822772738162556999/Capture_decran_de_2021-03-20_11-03-33.png)
+![captu](https://www.mediafire.com/file/ofj3nx5vz8r3fxv/Capture+d’écran+de+2021-03-27+11-47-46.png)
