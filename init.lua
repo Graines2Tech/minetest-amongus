@@ -91,6 +91,7 @@ dofile(modpath .. "/players.lua")
 dofile(modpath .. "/tasks.lua")
 dofile(modpath .. "/meeting.lua")
 dofile(modpath .. "/game.lua")
+dofile(modpath .. "/doors.lua")
 
 amongus.skins[amongus.get_default_skin_name()] = "Admin"
 

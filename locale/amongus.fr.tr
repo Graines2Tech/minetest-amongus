@@ -2,23 +2,23 @@
 Game has not started yet…=Game has not started yet…
 
 #huds
-Tasks=Tasks
-IMPOSTOR=IMPOSTOR
-Kill available=Kill available
-in @1s=in @1s
-Use the chat to discuss.=Use the chat to discuss.
-Right click on the spawn block to vote.=Right click on the spawn block to vote.
-@1s remaining.=@1s remaining.
-There are no impostors among us.=There are no impostors among us.
-There is 1 impostor among us.=There is 1 impostor among us.
-There are @1 impostors among us.=There are @1 impostors among us.
-You are now a ghost.=You are now a ghost.
-You can use fly and noclip modes.=You can use fly and noclip modes.
-Finish your tasks to help your team!=Finish your tasks to help your team!
+Tasks=Taches
+IMPOSTOR=IMPOSTEUR
+Kill available=kill disponible
+in @1s=dans @1s
+Use the chat to discuss.=Utilise le chat pour discuter
+Right click on the spawn block to vote.=Clique droit sur le bloc de spawn pour voter
+@1s remaining.=@1s restante
+There are no impostors among us.=Il n’y a pas d’imposteur Among Us
+There is 1 impostor among us.=Il y a 1 imposteur Among Us
+There are @1 impostors among us.=Il y a @1 imposteur Among Us
+You are now a ghost.=Tu es maintenant un fantôme
+You can use fly and noclip modes.=Vous pouvez voler et passer à travers les blocks
+Finish your tasks to help your team!=Finissez vos taches pour aider votre équipe
 
 #meeting
-Meeting by=Meeting by
-No one was ejected (tie)=No one was ejected (tie)
+Meeting by=Réunion par
+No one was ejected (tie)=Personne n’a été éjécté (égalité)
 No one was ejected (skipped).=No one was ejected (skipped).
 @1 has been ejected.=@1 has been ejected.
 
@@ -86,3 +86,7 @@ Can we download among us on steam ???=Can we download among us on steam ???
 yes=yes
 no=no
 What is the price of among us on pc ???=What is the price of among us on pc ???
+
+#doors
+Impostor Door=Impostor Door
+Impostor Trapdoor=Impostor Trapdoor
