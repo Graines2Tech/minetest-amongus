@@ -1,75 +1,75 @@
 #common
-Game has not started yet…=Game has not started yet…
+Game has not started yet…=La partie n'a pas encore commencé…
 
 #huds
 Tasks=Taches
 IMPOSTOR=IMPOSTEUR
 Kill available=kill disponible
 in @1s=dans @1s
-Use the chat to discuss.=Utilise le chat pour discuter
-Right click on the spawn block to vote.=Clique droit sur le bloc de spawn pour voter
-@1s remaining.=@1s restante
-There are no impostors among us.=Il n’y a pas d’imposteur Among Us
-There is 1 impostor among us.=Il y a 1 imposteur Among Us
-There are @1 impostors among us.=Il y a @1 imposteur Among Us
-You are now a ghost.=Tu es maintenant un fantôme
-You can use fly and noclip modes.=Vous pouvez voler et passer à travers les blocks
-Finish your tasks to help your team!=Finissez vos taches pour aider votre équipe
+Use the chat to discuss.=Utilise le chat pour discuter.
+Right click on the spawn block to vote.=Clique droit sur le bloc de spawn pour voter.
+@1s remaining.=@1s restante.
+There are no impostors among us.=Il n’y a pas d’imposteur Among Us.
+There is 1 impostor among us.=Il y a 1 imposteur Among Us.
+There are @1 impostors among us.=Il y a @1 imposteur Among Us.
+You are now a ghost.=Tu es maintenant un fantôme.
+You can use fly and noclip modes.=Vous pouvez voler et passer à travers les blocks.
+Finish your tasks to help your team!=Finissez vos taches pour aider votre équipe!
 
 #meeting
-Meeting by=Réunion par
-No one was ejected (tie)=Personne n’a été éjécté (égalité)
-No one was ejected (skipped).=No one was ejected (skipped).
-@1 has been ejected.=@1 has been ejected.
+Meeting by=Réunion par :
+No one was ejected (tie)=Personne n’a été éjécté (égalité).
+No one was ejected (skipped).=Personne n’a été éjécté (vote blanc).
+@1 has been ejected.=@1 a été éjecté.
 
 #weapon
-How do you get this weapon? Only impostors are skilled to use it…=How do you get this weapon? Only impostors are skilled to use it…
-You're dead, you cannot kill people any more…=You're dead, you cannot kill people any more…
-Seriously? During a meeting?=Seriously? During a meeting?
-Seriously? You wanna kill your partner?=Seriously? You wanna kill your partner?
-You must be closer…=You must be closer…
-Among us Sword=Among us Sword
+How do you get this weapon? Only impostors are skilled to use it…=Comment obtenir cette arme ? seul les imposteurs sont autorisés à la prendre…
+You're dead, you cannot kill people any more…=Vous êtes mort, vous ne pouvez tuez les joueur…
+Seriously? During a meeting?=Sérieusement ????? En PLEINE rénion ?
+Seriously? You wanna kill your partner?=Sérieux ? vous voulez tuez votre partenaire ? (pourquoi pas!)
+You must be closer…=Vous devez être plus près...
+Among us Sword=_L'épée d'among us_
 
 #skin
-Choose your skin=Choose your skin
-black=Black
-blue=Blue
-brown=Brown
+Choose your skin=Choisi ton Skin
+black=Noir
+blue=Bleue
+brown=Brun
 cyan=Cyan
-green=Green
+green=Vert
 invisible=Invisible
-lime=Lime
+lime=Vert claire
 orange=Orange
-pink=Pink
-purple=Purple
-red=Red
-white=White
-yellow=Yellow
+pink=Rose
+purple=Violet
+red=Rouge
+white=Blanc
+yellow=Jaune
 yin_yang=Yin Yang
 
 #players
-@1 is the game master=@1 is the game master
-AmongUS corpse=AmongUS corpse
-Corpse found=Corpse found
-[Ghost]=[Ghost]
-You're dead! You cannot report corpses!=You're dead! You cannot report corpses!
+@1 is the game master=@1 est le maitre de la partie.
+AmongUS corpse=AmongUS corp
+Corpse found=Un corp a été trouvé.
+[Ghost]=[Fantôôme]
+You're dead! You cannot report corpses!=Tu est mort! Tu ne peut reporte ton propre corp !
 
 #game
-Game has not started yet, please wait=Game has not started yet, please wait
-Impostors win.=Impostors win.
-Crewmates win.=Crewmates win.
-Emergency button will be available in @1s.=Emergency button will be available in @1s.
-Emergency=Emergency
-AmongUS spawn=AmongUS spawn
-AmongUS start block=AmongUS start block
-Only @1 can start the game.=Only @1 can start the game.
-@1 ends the game.=@1 ends the game.
-AmongUS emergency button=AmongUS emergency button
+Game has not started yet, please wait=La partie n'a pas commencé, attendez s'il vous plaît!
+Impostors win.=Le(s) Imposteur(s) ont/a gagné(s).
+Crewmates win.=Les Crewmates ont gagnés la partie.
+Emergency button will be available in @1s.=Le bouton d'urgence est valable dans @1s.
+Emergency=Rénions d'urgence
+AmongUS spawn=Block among_us de spawn
+AmongUS start block=Block among_us de début de la partie
+Only @1 can start the game.=Seul @1 peut faire démarrer la partie.
+@1 ends the game.=@1 a fait terminer la partie.
+AmongUS emergency button=Block among_us bouton d'urgence.
 
 #tasks
 AmongUS @1 task=AmongUS @1 task
-You cannot do tasks during meetings.=You cannot do tasks during meetings.
-You are too far from the task.=You are too far from the task.
+You cannot do tasks during meetings.=Vous ne pouvez faire de tasks pendant les rénions d'urgence.
+You are too far from the task.=Vous êtes trop loin
 Just fake it!=Just fake it!
 
 #tasks/download
