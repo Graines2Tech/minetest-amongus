@@ -147,7 +147,7 @@ end
 
 --define game admin
 function amongus.check_first_player(player_name)
-    if amongus.admin == nil then
+    if amongus.admin == nil or amongus.admin == "" then
         amongus.admin = player_name
         minetest.chat_send_all(S("@1 is the game master", player_name))
     end
